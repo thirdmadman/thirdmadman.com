@@ -1,0 +1,14 @@
+.app {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1d1d1d;
+}
+
+.app__title {
+  font-size: 10vw;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
