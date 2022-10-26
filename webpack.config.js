@@ -48,9 +48,6 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: '/dist/',
-            },
           },
           'css-loader',
           'sass-loader',
@@ -77,10 +74,6 @@ module.exports = {
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
-        {
-          from: path.resolve(__dirname, 'src/assets/favicon.ico'),
-          to: path.resolve(__dirname, 'dist/assets/'),
-        },
         {
           from: path.resolve(__dirname, 'src/static/'),
           to: path.resolve(__dirname, 'dist/static/'),
