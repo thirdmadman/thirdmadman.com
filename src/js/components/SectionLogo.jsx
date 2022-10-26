@@ -9,7 +9,10 @@ export default function SectionLogo() {
 
   return (
     <div className="section section-logo">
-      <div className={isVisible ? 'logo' : 'logo logo_hidden'}>thirdmadman</div>
+      <div className={isVisible ? 'logo' : 'logo logo_hidden'}>
+        <div className="logo__image" />
+        <div className="logo__subtitle">#the_one_who_creates</div>
+      </div>
     </div>
   );
 }
