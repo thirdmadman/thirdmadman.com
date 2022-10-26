@@ -1,11 +1,11 @@
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -13,12 +13,7 @@ module.exports = {
   mode: isDev ? 'development' : 'production',
   devtool: isDev ? 'source-map' : false,
   target: isDev ? 'web' : 'browserslist',
-  stats: {
-    children: true,
-  },
-  entry: {
-    app: ['./src/index.js'],
-  },
+  entry: './src/index.jsx',
   output: {
     filename: '[name].[contenthash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -28,12 +23,62 @@ module.exports = {
     minimize: !isDev,
     minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
   },
+  resolve: {
+    alias: {
+      components: path.resolve(__dirname, 'src'),
+    },
+    extensions: ['.js', '.jsx'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+      {
+        test: /.s?css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '/dist/',
+            },
+          },
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+        type: 'asset/resource',
+      },
+    ],
+  },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      minify: {
+        collapseWhitespace: !isDev,
+      },
+      inject: 'body',
+    }),
+    new ESLintPlugin({
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+      exclude: ['/node_modules/', '/bower_components/'],
+    }),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'src/favicon.ico'),
+          from: path.resolve(__dirname, 'src/assets/favicon.ico'),
           to: path.resolve(__dirname, 'dist/assets/'),
         },
         {
@@ -43,63 +88,10 @@ module.exports = {
         },
       ],
     }),
-    new ESLintPlugin({
-      extensions: ['js', 'jsx'],
-      exclude: ['/node_modules/', '/bower_components/'],
-    }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].bundle.css',
     }),
-    new HTMLWebpackPlugin({
-      template: './src/index.html',
-      minify: {
-        collapseWhitespace: !isDev,
-      },
-      inject: 'body',
-    }),
   ],
-  module: {
-    rules: [
-      {
-        test: /.s?css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.html$/i,
-        loader: 'html-loader',
-      },
-      {
-        test: /\.(mp3)$/,
-        use: ['file-loader'],
-      },
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env'],
-            },
-          },
-        ],
-      },
-      {
-        test: /\.ts$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-typescript'],
-          },
-        },
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-        type: 'asset/resource',
-      },
-    ],
-  },
   devServer: {
     open: true,
     port: 8000,
