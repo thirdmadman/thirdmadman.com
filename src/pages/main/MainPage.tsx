@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import './index.scss';
 
-export default function SectionLogo() {
+export function MainPage() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
