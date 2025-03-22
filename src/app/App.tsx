@@ -5,7 +5,7 @@ const router = createHashRouter([routes]);
 
 export function App() {
   return (
-    <main className="app">
+    <main className="h-full">
       <RouterProvider router={router} />
     </main>
   );
