@@ -1,12 +1,12 @@
 import { RouteObject } from 'react-router';
 
-import { ROUTE_MAIN } from '@/constants';
+import { ROUTES } from '@/constants';
 import { MainPage } from '@/pages/main/MainPage';
 import { Layout } from './Layout';
 
 export const ROUTES_TREE: Array<RouteObject> = [
   {
-    path: ROUTE_MAIN,
+    path: ROUTES.MAIN,
     element: <MainPage />,
   },
   {
