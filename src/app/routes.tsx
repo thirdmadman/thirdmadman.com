@@ -1,9 +1,9 @@
 import { RouteObject } from 'react-router';
 
 import { ROUTES } from '@/constants';
-import { MainPage } from '@/pages/main/MainPage';
+import { MainPage } from '@/pages/main/';
 import { Layout } from './Layout';
-import { ProjectsPage } from '@/pages/projects/ProjectsPage';
+import { ProjectsPage } from '@/pages/projects/';
 
 export const ROUTES_TREE: Array<RouteObject> = [
   {

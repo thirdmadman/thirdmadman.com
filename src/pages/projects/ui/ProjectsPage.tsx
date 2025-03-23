@@ -1,6 +1,6 @@
 import { PROJECTS } from '@/constants';
-import { BasicPageLayout } from '@/shared/basic-page-layout';
-import { PageHeader } from '@/shared/header';
+import { BasicPageLayout } from '@/shared/ui/basic-page-layout';
+import { PageHeader } from '@/shared/ui/header';
 
 interface IProjectCard {
   name: string;

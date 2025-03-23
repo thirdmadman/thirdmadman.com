@@ -1,5 +1,5 @@
 import { ROUTES } from '@/constants';
-import { Navbar } from '@/shared/navbar';
+import { Navbar } from '@/widgets/navbar';
 import { Outlet } from 'react-router';
 
 const menuArray = [

@@ -31,7 +31,7 @@ export function ThemeSwitch() {
   const isDark = theme === 'dark';
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center justify-center min-w-[44px] min-h-[44px]">
       <button
         onClick={() => {
           handleThemeChange(isDark ? 'light' : 'dark');
