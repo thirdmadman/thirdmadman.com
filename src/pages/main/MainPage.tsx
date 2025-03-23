@@ -12,7 +12,7 @@ export function MainPage() {
   return (
     <div className="flex flex-col justify-center items-center min-h-screen dark:bg-neutral-900 section-logo relative after:invert before:invert dark:after:filter-none dark:before:filter-none pt-[65px]">
       <div
-        className={`flex flex-col items-center items-center justify-space-between text-black dark:text-neutral-100 transition duration-200 ${isVisible ? 'opacity-100' : `opacity-0`}`}
+        className={`flex flex-col items-center items-center justify-space-between text-black dark:text-neutral-100 transition duration-800 ${isVisible ? 'opacity-100' : `opacity-0`}`}
       >
         <div className="bg-[url(/svg/thirdmadman-logo-white.svg)] bg-contain bg-center bg-contain bg-no-repeat w-[40vh] h-[40vh] mb-5 invert dark:filter-none" />
         <div className="text-[4vh]">#the_one_who_creates</div>
