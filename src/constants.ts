@@ -13,8 +13,9 @@ export const PROJECTS = [
     link: 'https://yh2k25-fetch-my-coin.thirdmadman.com/',
   },
   {
-    name: 'FetchGraphiQL app',
-    description: 'GraphiQL is a playground/IDE for graphQL requests.',
+    name: 'GraphiQL app',
+    description:
+      'GraphiQL is a playground/IDE for graphQL requests. Schema introspection, authorization and registration.',
     sourceCodeLink: 'https://github.com/thirdmadman/graphiql-app',
     link: 'https://graphiql-app.thirdmadman.com/',
   },
@@ -26,20 +27,20 @@ export const PROJECTS = [
   },
   {
     name: 'The Forgotten Words',
-    description: 'SPA, which helps people study english language in form of game. ',
+    description: 'Learning app which helps people study english language in form of game.',
     sourceCodeLink: 'https://github.com/thirdmadman/fe-training-forgotten-words',
     link: 'https://fe-training-forgotten-words.thirdmadman.com/',
   },
   {
     name: 'Momentum',
     description:
-      'Momentum is an analogue of the Chrome Web Store application of the same name. The application shows the time and username. The background image and greeting changes depending on the time of day.',
+      'Momentum is an analogue of the Chrome Web Store application of the same name. The background image and greeting changes depending on the time of day.',
     sourceCodeLink: 'https://github.com/thirdmadman/fe-training-JSFE2021Q3-momentum',
     link: 'https://fe-training-JSFE2021Q3-momentum.thirdmadman.com/',
   },
   {
     name: 'Pixel World Simulation',
-    description: 'Remake of Noita, using JS',
+    description: 'Remake of Noita, using JS. Liquids, sand, wood, fire, all pixels simulated.',
     sourceCodeLink: 'https://github.com/thirdmadman/pixel-world-simulation',
     link: 'https://pixel-world-simulation.thirdmadman.com/',
   },
