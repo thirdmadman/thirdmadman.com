@@ -14,7 +14,7 @@ export function MainPage() {
       <div
         className={`flex flex-col items-center items-center justify-space-between text-black dark:text-neutral-100 transition duration-800 ${isVisible ? 'opacity-100' : `opacity-0`}`}
       >
-        <div className="bg-[url(/svg/thirdmadman-logo-white.svg)] bg-contain bg-center bg-contain bg-no-repeat w-[40vh] h-[40vh] mb-5 invert dark:filter-none" />
+        <div className="bg-[url(/svg/thirdmadman-logo-outline-white.svg)] bg-contain bg-center bg-contain bg-no-repeat w-[40vh] h-[40vh] mb-5 invert dark:filter-none" />
         <div className="text-[4vh]">#the_one_who_creates</div>
         <Link to="/projects">
           <div className="warning-dev absolute right-[40px] top-[105px] uppercase flex flex-col justify-center items-center">
