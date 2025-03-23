@@ -1,7 +1,7 @@
 import { MenuLink } from './MenuLink';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BurgerMenuButton } from './BurgerMenuButton';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { ROUTES } from '@/constants';
 import { ThemeSwitch } from './ThemeSwitch';
 
@@ -11,6 +11,12 @@ interface INavBarProps {
 
 export function Navbar({ menuLinks }: INavBarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
 
   return (
     <nav className="fixed w-full z-100 bg-white border-b border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700">
