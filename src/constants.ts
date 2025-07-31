@@ -7,6 +7,12 @@ export const ROUTES = {
 
 export const PROJECTS = [
   {
+    name: 'Prismalaser',
+    description: 'Prisma schema visualization, editor and more.',
+    sourceCodeLink: 'https://github.com/thirdmadman/prismalaser',
+    link: 'https://prismalaser.thirdmadman.com/',
+  },
+  {
     name: 'FetchMyCoin',
     description: 'Fetch my coin - cryptocurrency app for tracing current rates in real time.',
     sourceCodeLink: 'https://github.com/thirdmadman/yh2k25-fetch-my-coin',
